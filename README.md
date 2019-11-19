@@ -1,2 +1,2 @@
 # foody_bag
-This is Sparta
+Java 6th Sem. project
