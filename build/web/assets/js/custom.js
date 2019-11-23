@@ -1,6 +1,6 @@
 var canvas = document.getElementById('fortuneCanvas');
 var ctx= canvas.getContext('2d');
-var wheelSound = new sound("audio/Rolling On Wood LOOP_SS 01.mp3");
+var wheelSound = new sound("../audio/Rolling On Wood LOOP_SS 01.mp3");
 function sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;

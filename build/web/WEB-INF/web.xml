@@ -24,6 +24,10 @@
         <jsp-property-group>
             <display-name> Configuration for main pages</display-name>
             <url-pattern>/WEB-INF/dashboard.jsp</url-pattern>
+            <url-pattern>/WEB-INF/menu.jsp</url-pattern>
+            <url-pattern>/index.jsp</url-pattern>
+            
+            
             <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
             <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
 
