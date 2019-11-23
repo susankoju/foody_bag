@@ -37,7 +37,6 @@
 					<span class="login100-form-title p-b-43">
 						Login to FoodyBag
 					</span>
-                               
                                         <c:set var="emsg" scope="page" value="${errorMsg}"></c:set>	
                                         <c:if test="${emsg != null}">
                                             <span class="btn btn-danger">${errorMsg}</span>
@@ -62,7 +61,7 @@
 					</div>
 					
 					<div class="container-signup100-form-btn" style="margin-top:5px;">
-						<a href="signup.html" class="login100-form-btn hover-white">
+						<a href="signup.jsp" class="login100-form-btn hover-white">
 							or Sign up
 						</a>
 						<style>

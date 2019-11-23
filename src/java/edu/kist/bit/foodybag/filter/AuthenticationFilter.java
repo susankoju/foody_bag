@@ -47,7 +47,7 @@ import javax.servlet.http.HttpSession;
                 + ".css,"
                 + ".js,"
                 +"/images/,"
-                +"/fonts/"
+                +"/fonts/,"
                 + "/index.jsp"))
 public class AuthenticationFilter implements Filter {
 

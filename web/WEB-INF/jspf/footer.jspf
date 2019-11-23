@@ -1,5 +1,58 @@
 <%-- any content can be specified here e.g.: --%>
 <%@page pageEncoding="UTF-8"%>
-<h2>Footer</h2>
-</body>
+
+
+	
+		
+	<div id="fh5co-footer">
+		<div class="container">
+			<div class="row row-padded">
+				<div class="col-md-12 text-center">
+					<p class="to-animate">&copy; 2019 Foody Bag. <br> Designed by <a href="index.jsp" target="_blank">FoodyBag.com</a> <br> 
+					<p class="text-center to-animate"><a href="#" class="js-gotop ">Go To Top</a></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<ul class="fh5co-social">
+						<li class="to-animate-2"><a href="#"><i class="icon-instagram"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	
+	
+	
+	
+	<!-- jQuery -->
+	<script src="assets/js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="assets/js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- Bootstrap DateTimePicker -->
+	<script src="assets/js/moment.js"></script>
+	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- Waypoints -->
+	<script src="assets/js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="assets/js/jquery.stellar.min.js"></script>
+
+	<!-- Flexslider -->
+	<script src="assets/js/jquery.flexslider-min.js"></script>
+	<script>
+		$(function () {
+	       $('#date').datetimepicker();
+	   });
+	</script>
+	<!-- Main JS -->
+	<script src="assets/js/main.js"></script>
+
+
+	<script src="assets/js/custom.js"></script>
+	</body>
 </html>
+
