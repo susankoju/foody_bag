@@ -24,15 +24,14 @@ import javax.persistence.NoResultException;
 
 /**
  *
- * @author Dell
+ * @author User
  */
 public class UsersJpaController implements Serializable {
-    
-    private EntityManagerFactory emf = null;
 
     public UsersJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -310,6 +309,7 @@ public class UsersJpaController implements Serializable {
         }
     }
     
+    
     public Users checkLogin(String email) throws NonexistentEntityException{
         EntityManager em = getEntityManager();
         Users result = null;
@@ -317,7 +317,7 @@ public class UsersJpaController implements Serializable {
             result = (Users) em.createNamedQuery("Users.findByEmail")
                 .setParameter("email", email)
                 .getSingleResult();
-        } catch (NullPointerException | NoResultException e) {
+        } catch (NullPointerException | NoResultException  e) {
             throw new NonexistentEntityException("The users with email: " + email + " no longer exists.");
         }
         return result;

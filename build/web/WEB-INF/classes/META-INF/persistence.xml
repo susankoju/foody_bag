@@ -12,6 +12,7 @@
     <class>edu.kist.bit.foodybag.entity.Users</class>
     <class>edu.kist.bit.foodybag.entity.Restaurants</class>
     <class>edu.kist.bit.foodybag.entity.Reservation</class>
+    <class>edu.kist.bit.foodybag.entity.Events</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/foody_bag?zeroDateTimeBehavior=convertToNull"/>

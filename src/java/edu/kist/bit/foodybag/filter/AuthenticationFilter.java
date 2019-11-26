@@ -48,6 +48,8 @@ import javax.servlet.http.HttpSession;
                 + ".js,"
                 +"/images/,"
                 +"/menu,"
+                +"/signup,"
+                +"/signup.jsp,"
                 +"/images/,"
                 +"/fonts/,"
                 + "/index.jsp"))
@@ -190,7 +192,7 @@ public class AuthenticationFilter implements Filter {
                     return;
                 }
             } else if (null == session || session.getAttribute("loggedInUser") == null) {
-                resp.sendRedirect("index.jsp");
+                resp.sendRedirect("login.jsp");
                 return;
             }
         }

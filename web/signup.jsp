@@ -1,5 +1,10 @@
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>FoodyBag Login</title>
+	<title>FoodyBag SignUp</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -30,25 +35,43 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST">
 					<span class="login100-form-title p-b-43">
 						Signup to FoodyBag
 					</span>
+                     <c:set var="errmsg" scope="page" value="${errorMsg}"></c:set>
+                    <c:if test="${errmsg != null}">
+                        <div>
+                            <span style="font-size: 15px;">${errmsg}</span>
+                        </div>
+                    </c:if>
+                    
 					
-					<div class="wrap-input100 validate-input" data-validate = "First Name is required : john">
-						<input class="input100" type="text" name="name">
+                    <div class="wrap-input100 validate-input" >
+                        <input class="input100" type="text" name="first_name">
 						<span class="focus-input100"></span>
 						<span class="label-input100">First Name</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Last Name is Require : Doe">
-						<input class="input100" type="text" name="email">
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" name="last_name">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Last Name</span>
 					</div>
+                                        <div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" name="address">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Address</span>
+					</div>
+                                        <div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" name="contact">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Contact</span>
+					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email">
+
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="email" name="email">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Email</span>
 					</div>
@@ -61,13 +84,13 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" >
 						<span class="focus-input100"></span>
 						<span class="label-input100">Re-Type Password</span>
 					</div>
 					
 					<div class="container-signup100-form-btn">
-						<button class="login100-form-btn">
+						<button type="submit" class="login100-form-btn">
 							Sign up
 						</button>
 					</div>

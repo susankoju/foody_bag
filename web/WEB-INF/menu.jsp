@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <c:forEach var="food" items="${menus}">
             <h2> Name: ${food.name}</h2>
-            <p> Type: ${food.typeId} $ ${food.price} </p>
+            <p> Type: ${food.typeId.name} $ ${food.price} </p>
         </c:forEach>
 		</div>
 		<div id="fh5co-menus" data-section="menu">

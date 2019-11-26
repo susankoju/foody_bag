@@ -17,7 +17,9 @@
 			<div class="col-md-3 to-animate">
 				<a href="" >
 				<div class="fh5co-type" onMouseOver="this.style.border='1px solid grey';this.style.borderRadius='55px';" onMouseOut="this.style.border='none';">
-					<h3 class="with-icon icon-1">${foodCategory.name}</h3>
+                                    <a href="category?id=${foodCategory.id}"   >
+					<h3 class="with-icon icon-${foodCategory.id}">${foodCategory.name}</h3>
+                                    </a>
 				</div>
 				</a>
 			</div>

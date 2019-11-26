@@ -20,6 +20,7 @@ import edu.kist.bit.foodybag.services.exceptions.IllegalOrphanException;
 import edu.kist.bit.foodybag.services.exceptions.NonexistentEntityException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 
 /**
  *
@@ -281,6 +282,19 @@ public class FoodsJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+    
+    public List<Foods> findFoodsByCategoryId(Integer categoryId){
+                        EntityManager em = getEntityManager();                         
+                  List<Foods>  foods= null;
+                  
+                  try{
+                              foods = (List<Foods>) em.createNamedQuery("Food.findByFoodTypes").setParameter("typeId",categoryId).getResultList();
+                  } catch(NoResultException ex){
+                              foods = new ArrayList<>();
+                  }
+                  
+                  return foods;
     }
     
 }

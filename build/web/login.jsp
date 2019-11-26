@@ -61,7 +61,7 @@
 					</div>
 					
 					<div class="container-signup100-form-btn" style="margin-top:5px;">
-						<a href="signup.jsp" class="login100-form-btn hover-white">
+						<a href="signup" class="login100-form-btn hover-white">
 							or Sign up
 						</a>
 						<style>
