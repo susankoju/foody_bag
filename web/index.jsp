@@ -134,10 +134,19 @@
 	</div>
 </div>
 
-		
-<div class=" text-center">
-	Subscribe Us! 
-</div>
+<section class="text-center join-us clearfix ipad-only">
+            <div class="wrapper ">
+                <h2>Join Us For Free</h2>
+                <label>Subscribe to our free mailing list for freebies and more!</label>
+                <form method="POST" action="#">
+                    <input type="text" placeholder="Enter your email..." name="email">
+                    <input type="submit" value="Sign Up">
+                </form>
+                <p>
+                    We guarantee not to spam you or share your information.
+                </p>
+            </div>
+        </section>
 
 		
 	

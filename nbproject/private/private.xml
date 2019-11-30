@@ -3,10 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/foody_bag/src/java/edu/kist/bit/foodybag/utils/FileUploadDTO.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/foody_bag/src/java/edu/kist/bit/foodybag/utils/FileUploadUtil.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/foody_bag/web/signup.jsp</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/foody_bag/src/java/edu/kist/bit/foodybag/controllers/DashboardController.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/foody_bag/web/WEB-INF/admin/sidebar.jsp</file>
         </group>
     </open-files>
 </project-private>

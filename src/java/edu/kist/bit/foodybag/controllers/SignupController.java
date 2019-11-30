@@ -47,7 +47,7 @@ public class SignupController extends HttpServlet {
 
         
          FileUploadDTO fileUploadDTO = FileUploadUtil.fileUpload(request, response, "file");
-        String photo = fileUploadDTO.getFileLocation();
+        String photo = fileUploadDTO.getFileName();
 
         first_Name = request.getParameter("first_name");
         last_Name = request.getParameter("last_name");
@@ -78,6 +78,7 @@ public class SignupController extends HttpServlet {
             user.setPassword(password);
           //  user.setStatus(email);
             user.setStatus("active");
+            user.setRole("customer");
             System.out.println(user);
             userJpaController.create(user);
             

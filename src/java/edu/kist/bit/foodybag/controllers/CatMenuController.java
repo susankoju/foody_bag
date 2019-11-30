@@ -38,8 +38,7 @@ public class CatMenuController extends HttpServlet {
         
         
         String servletPath = request.getServletPath();
-//      String dispatchString = "";
-        String dashboardURL = "/WEB-INF/dashboard.jsp";
+        String dashboardURL = "/WEB-INF/catMenu.jsp";
         String loginURL = "login.jsp";
         
         FoodTypesJpaController foodTypeService = new FoodTypesJpaController(emf);

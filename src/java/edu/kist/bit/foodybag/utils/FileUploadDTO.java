@@ -14,6 +14,7 @@ package edu.kist.bit.foodybag.utils;
  */
 public class FileUploadDTO {
     private String fileLocation;
+    private String fileName;
     private Boolean isWrittenOnDisk;
 
     public String getFileLocation() {
@@ -31,6 +32,13 @@ public class FileUploadDTO {
     public void setIsWrittenOnDisk(Boolean isWrittenOnDisk) {
         this.isWrittenOnDisk = isWrittenOnDisk;
     }
+
+            public String getFileName() {
+                        return fileName;
+            }
+            public void setFileName(String fileName) {
+                        this.fileName = fileName;
+            }
     
     
 }

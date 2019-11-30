@@ -8,6 +8,8 @@
 <c:if test="${role!='admin'}">
     <c:redirect url="index.jsp"/>
 </c:if>
+<c:redirect url="WEB-INF/menu.jsp"/>
+
 
 <div id="fh5co-type" style="background-image: url(images/slide_3.jpg);" data-stellar-background-ratio="0.5">
 	<div class="fh5co-overlay"></div>

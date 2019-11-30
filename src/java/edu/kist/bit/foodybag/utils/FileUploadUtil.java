@@ -66,6 +66,7 @@ public class FileUploadUtil {
             }
             fileUploadDto.setIsWrittenOnDisk(Boolean.TRUE);
             fileUploadDto.setFileLocation(uploadFilePath + File.separator + fileName);
+            fileUploadDto.setFileName(fileName);
         } catch (FileNotFoundException fne) {
         } finally {
             if (out != null) {

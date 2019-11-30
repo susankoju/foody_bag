@@ -1,11 +1,12 @@
-<%-- 
-    Document   : admindashboard
-    Created on : Nov 25, 2019, 10:18:09 AM
-    Author     : Dell
---%>
 
-<jsp:include page="adminheader.jsp"/>
+<c:if test="${role!='admin'}">
+    <c:redirect url="index.jsp"/>
+</c:if>
+   
+<c:if test="${role=='admin'}">              
+    <jsp:include page="/WEB-INF/admin/sidebar.jsp"/>
 
+</c:if>
 <!--main content start-->
       <section id="main-content">
           <section class="wrapper">            
@@ -72,17 +73,7 @@
 
           </section>
           <div class="text-right">
-          <div class="credits">
-                
-                    All the links in the footer should remain intact. 
-                    You can delete the links only if you purchased the pro version.
-                    Licensing information: https://bootstrapmade.com/license/
-                    Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-              
-             
-            </div>
+
         </div>
       </section>
       <!--main content end-->
-
-<jsp:include page="adminfooter.jsp" />

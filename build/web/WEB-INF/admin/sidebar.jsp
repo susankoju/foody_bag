@@ -9,36 +9,30 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">                
                   <li class="active">
-                      <a class="" href="admindashboard.jsp">
+                      <a class="" href="dashboard">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
                   </li>
 				  <li>
-                      <a class="" href="addCategories.jsp">
+                      <a class="" href="categories">
                           <i class="icon_genius"></i>
                           <span>Add Category</span>
                       </a>
                   </li>
-                 <li>
-                      <a class="" href="updateCategories.html">
+          
+                  <li>
+                      <a class="" href="addFoodForm">
                           <i class="icon_genius"></i>
-                          <span>Update Category</span>
+                          <span>Add Food</span>
                       </a>
                   </li>
-          
+                  
                   
                   <li>
                       <a class="" href="addEvents.html">
                           <i class="icon_genius"></i>
                           <span>Add Event</span>
-                      </a>
-                  </li>
-                  
-                  <li>
-                      <a class="" href="addFoods.html">
-                          <i class="icon_genius"></i>
-                          <span>Add Food</span>
                       </a>
                   </li>
                   
@@ -56,6 +50,12 @@
                       </a>
                   </li>
                   
+                 <li>
+                      <a class="" href="updateCategories.html">
+                          <i class="icon_genius"></i>
+                          <span>Update Category</span>
+                      </a>
+                  </li>
                  
                   
               </ul>

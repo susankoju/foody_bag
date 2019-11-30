@@ -99,3 +99,10 @@ a:hover{
     opacity:1;
     animation: animate_gradian 4s linear infinite;
 }
+.join-us {
+    text-align: center;
+    background: #dff9fb;
+    background-size: cover;
+    padding: 6.25em 0px;
+    color: #86919d;
+}
