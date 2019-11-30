@@ -35,7 +35,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST">
+				<form class="login100-form validate-form" method="POST" enctype='multipart/form-data'>
 					<span class="login100-form-title p-b-43">
 						Signup to FoodyBag
 					</span>

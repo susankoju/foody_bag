@@ -12,8 +12,10 @@ import edu.kist.bit.foodybag.utils.FileUploadUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigInteger;
+import java.util.Date;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +26,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author User
  */
 @WebServlet(name = "SignupController", urlPatterns = {"/signup"})
+@MultipartConfig
 public class SignupController extends HttpServlet {
 
     /**
@@ -44,7 +47,7 @@ public class SignupController extends HttpServlet {
 
         
          FileUploadDTO fileUploadDTO = FileUploadUtil.fileUpload(request, response, "file");
-                String photo = fileUploadDTO.getFileLocation();
+        String photo = fileUploadDTO.getFileLocation();
 
         first_Name = request.getParameter("first_name");
         last_Name = request.getParameter("last_name");
@@ -58,9 +61,13 @@ public class SignupController extends HttpServlet {
         
         
             Users user = new Users();
-            user.setFirstName(first_Name);
+  
+            
                 user.setImg(photo);
-                    //try
+            
+  
+            
+            user.setFirstName(first_Name);
             user.setLastName(last_Name);
             user.setAddress(address);
             user.setContact(new Long(contact));
