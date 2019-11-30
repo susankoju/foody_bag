@@ -1,4 +1,4 @@
-<%@page session="false" %>
+<%@page session="true" %>
 
 
 
@@ -19,7 +19,7 @@
 							<h1 class="to-animate fadeInUp animated" style="font-size:150px;margin-bottom:25px">foody bag</h1>
 							<h2 class="to-animate fadeInUp animated" style=";margin-bottom:45px">The pleasure of variety at your place, <span id="txtLabel"></span><label id="cursor">|</label></h2>
 							<h3 class="to-animate fadeInUp animated">
-								<a href="./menu.html" class="special-button">See Menu</a>
+								<a href="./menu" class="special-button">See Menu</a>
 							</h3>
 						</div>
 					</div>

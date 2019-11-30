@@ -1,14 +1,5 @@
-<%-- 
-    Document   : dashboard.jsp
-    Created on : Nov 19, 2019, 10:22:46 AM
-    Author     : User
---%>
 
-<c:set var="role" value="${sessionScope.loggedInUser.role}" scope="page"></c:set>
-<c:if test="${role!='admin'}">
-    <c:redirect url="index.jsp"/>
-</c:if>
-
+            
 <div id="fh5co-type" style="background-image: url(images/slide_3.jpg);" data-stellar-background-ratio="0.5">
 	<div class="fh5co-overlay"></div>
 	<div class="container">

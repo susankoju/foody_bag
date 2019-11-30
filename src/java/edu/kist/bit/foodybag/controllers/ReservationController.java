@@ -5,13 +5,16 @@
  */
 package edu.kist.bit.foodybag.controllers;
 
+import edu.kist.bit.foodybag.entity.Reservation;
 import edu.kist.bit.foodybag.entity.Users;
+import edu.kist.bit.foodybag.services.ReservationJpaController;
 import edu.kist.bit.foodybag.services.UsersJpaController;
-import edu.kist.bit.foodybag.utils.FileUploadDTO;
-import edu.kist.bit.foodybag.utils.FileUploadUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigInteger;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Locale;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,8 +26,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-@WebServlet(name = "SignupController", urlPatterns = {"/signup"})
-public class SignupController extends HttpServlet {
+@WebServlet(name = "ReservationController", urlPatterns = {"/reservation"})
+public class ReservationController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,40 +42,24 @@ public class SignupController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("foodybagemf");
-        UsersJpaController userJpaController = new UsersJpaController(emf);
-        String first_Name,last_Name,address,contact,email,password;        
+        ReservationJpaController reservationJpaController = new ReservationJpaController(emf);
+        String  contact, ocation,  message;
+        int user_id;
+        Date date;
 
+        user_id = Integer.parseInt(request.getParameter("user_id"));
+        ocation = request.getParameter("ocation");
+        //date = DateTimeFormatter.ofPattern("yyyy/MM/dd", Locale.ENGLISH).format(request.getParameter("date"));
+        message =  request.getParameter("message") ;                  
+        date= new Date(System.currentTimeMillis());
         
-         FileUploadDTO fileUploadDTO = FileUploadUtil.fileUpload(request, response, "file");
-                String photo = fileUploadDTO.getFileLocation();
-
-        first_Name = request.getParameter("first_name");
-        last_Name = request.getParameter("last_name");
-        address = request.getParameter("address");
-        contact = request.getParameter("contact");
-
-        email = request.getParameter("email");
-        password = request.getParameter("pass");
-        address = request.getParameter("address");
-        contact = request.getParameter("contact");                  
-        
-        
-            Users user = new Users();
-            user.setFirstName(first_Name);
-                user.setImg(photo);
-                    //try
-            user.setLastName(last_Name);
-            user.setAddress(address);
-            user.setContact(new Long(contact));
-
-
+            Reservation reserve = new Reservation();
+            reserve.setUserId(user_id);
             
-            user.setEmail(email);
-            user.setPassword(password);
-          //  user.setStatus(email);
-            user.setStatus("active");
-            System.out.println(user);
-            userJpaController.create(user);
+            reserve.setOcation(ocation);
+            reserve.setMessage(message);
+            reserve.setTime(date);
+            reservationJpaController.create(reserve);
             
           request.getRequestDispatcher("index.jsp").forward(request, response);  
 //        Users user = new Users();

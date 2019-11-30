@@ -88,6 +88,11 @@
 						<span class="focus-input100"></span>
 						<span class="label-input100">Re-Type Password</span>
 					</div>
+					<div class="wrap-input100 validate-input" data-validate="Photo is required">
+						<input class="input100" type="file" name="file" >
+						<span class="focus-input100"></span>
+						<span class="label-input100">Select your photo</span>
+					</div>
 					
 					<div class="container-signup100-form-btn">
 						<button type="submit" class="login100-form-btn">

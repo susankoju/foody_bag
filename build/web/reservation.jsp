@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <%@ include file="./WEB-INF/jspf/header.jspf"%>
 
+
 <div id="fh5co-contact" data-section="reservation">
 			<div class="container">
 				<div class="row text-center fh5co-heading row-padded">
@@ -24,45 +25,93 @@
 							<li><i class="icon-globe"></i> <a href="http://foodbag.com/" target="_blank">foodybag.com</a></li>
 						</ul>
 					</div>
+                                    
+                                    <form method="POST" action="./reservation">
 					<div class="col-md-6 to-animate-2">
 						<h3>Reservation Form</h3>
-						<div class="form-group ">
-							<label for="name" class="sr-only">Name</label>
-							<input id="name" class="form-control" placeholder="Name" type="text">
-						</div>
-						<div class="form-group ">
-							<label for="email" class="sr-only">Email</label>
-							<input id="email" class="form-control" placeholder="Email" type="email">
-						</div>
-						<div class="form-group ">
-							<label for="name" class="sr-only">Contact</label>
-							<input id="name" class="form-control" placeholder="Contact" type="text">
-						</div>
-						<div class="form-group">
-							<label for="occation" class="sr-only">Occation</label>
-							<select class="form-control" id="occation">
-								<option>Select an Occation</option>
-							  <option>Wedding Ceremony</option>
-							  <option>Birthday</option>
-							  <option>Others</option>
-							</select>
-						</div>
-						<div class="form-group ">
-							<label for="date" class="sr-only">Date</label>
-							<input id="date" class="form-control" placeholder="Date &amp; Time" type="text">
-						</div>
+                                                <c:if test="${!empty sessionScope.loggedInUser}">
+                                                    <div class="form-group " style="display:none;border:1px solid black;">
+                                                            <label for="name" class="sr-only">Name</label>
+                                                            <input id="number" name="user_id" class="form-control" value="${sessionScope.loggedInUser.id}" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <label for="occation" class="sr-only">Occation</label>
+                                                            <select required name="ocation" class="form-control" id="occation">
+                                                                    <option>Select an Occation</option>
+                                                              <option>Wedding Ceremony</option>
+                                                              <option>Birthday</option>
+                                                              <option>Others</option>
+                                                            </select>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                            <label for="date" class="sr-only">Date</label>
+                                                            <input required type="date" name="date" class="form-control" placeholder="Date &amp; Time" >
+                                                    </div>
 
 
-							
-						<div class="form-group ">
-							<label for="message" class="sr-only">Message</label>
-							<textarea name="" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
-						</div>
-						<div class="form-group ">
-							<input class="btn btn-primary" value="Send Message" type="submit">
-						</div>
-						</div>
+
+                                                    <div class="form-group ">
+                                                            <label for="message" class="sr-only">Message</label>
+                                                            <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                            <input type="submit" class="btn btn-primary" value="Send Message" type="submit">
+                                                    </div>
+                                                </c:if>
+                                                
+                                                <c:if test="${empty sessionScope.loggedInUser}">      
+                                                    For reservation please, <a href="./login.jsp"> Log In </a>   
+                                                </c:if>
+					</div>
+                                    </form>
 				</div>
+                            
+                            
+                            <c:if test="${!empty sessionScope.loggedInUser}">      
+                                                          
+				<div class="row text-center fh5co-heading row-padded">
+					<div class="col-md-8 col-md-offset-2">
+						<h2 class=" to-animate">Your Reservation </h2>
+                                                
+                                              
+                                                
+            <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          
+                          <table class="table table-striped table-advance table-hover">
+                           <tbody>
+                              <tr>
+                                  
+                                
+                                 <th><i class="icon_mail_alt"></i> occasion</th>
+                                   <th><i class="icon_mail_alt"></i> Date& Time</th>
+                                 <th><i class="icon_mobile"></i> Message</th>
+                                 <th><i class="icon_cogs"></i> Action</th>
+                              </tr>
+                              <tr>
+                                
+                                  
+                                 <td>Rosser</td>
+                                 
+                                  <td>Rosser</td>
+                                 <td>gdfhjsnj</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                      <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                      <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              </tbody>
+                        </table>
+                      </section>
+                  </div>
+              </div>
+					</div>
+				</div>
+                            </c:if>
 			</div>
 		</div>
 

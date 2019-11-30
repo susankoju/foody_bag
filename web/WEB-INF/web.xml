@@ -15,6 +15,7 @@
             <url-pattern>/WEB-INF/menu.jsp</url-pattern>
             <url-pattern>/WEB-INF/events.jsp</url-pattern>
             <url-pattern>/WEB-INF/foods.jsp</url-pattern>
+            <url-pattern>/WEB-INF/catMenu.jsp</url-pattern>
             <url-pattern>/index.jsp</url-pattern>
             
             

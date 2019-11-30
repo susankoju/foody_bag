@@ -30,7 +30,7 @@ public class FileUploadUtil {
      */
     static final String UPLOAD_DIR = "uploads";
 
-    public static FileUploadDTO fileUpload(HttpServletRequest request, HttpServletResponse response)
+    public static FileUploadDTO fileUpload(HttpServletRequest request, HttpServletResponse response, String paramName)
             throws ServletException, IOException {
 
         FileUploadDTO fileUploadDto = new FileUploadDTO();
@@ -49,7 +49,7 @@ public class FileUploadUtil {
             fileSaveDir.mkdirs();
         }
 
-        final Part filePart = request.getPart("photoUpload");
+        final Part filePart = request.getPart(paramName);
         final String fileName = getFileName(filePart);
 
         OutputStream out = null;

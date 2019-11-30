@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2019 at 03:10 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Nov 30, 2019 at 08:23 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -204,6 +204,13 @@ CREATE TABLE `reservation` (
   `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`id`, `user_id`, `ocation`, `time`, `message`) VALUES
+(1, 5, 'Birthday', '2019-11-30 11:34:48', 'asdasd');
+
 -- --------------------------------------------------------
 
 --
@@ -234,22 +241,21 @@ CREATE TABLE `users` (
   `email` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
   `status` enum('active','deactivated') NOT NULL DEFAULT 'active',
-  `role` enum('admin','customer') DEFAULT 'customer'
+  `role` enum('admin','customer') DEFAULT 'customer',
+  `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `address`, `contact`, `email`, `password`, `status`, `role`) VALUES
-(1, 'Susan', 'Koju', 'Bhaktapur', 123456789, 'susankoju@gmail.com', '1b0679be72ad976ad5d491ad57a5eec0', 'active', 'admin'),
-(2, 'Roshan', 'Lasiwa', 'Bhaktapur', 123456789, 'roshanlasiwa@gmail.com', '1b0679be72ad976ad5d491ad57a5eec0', 'active', 'admin'),
-(3, 'Anisha', 'Rauniyar', 'Kathmandu', 123456789, 'anisharauniyar@yahoo.com', '1b0679be72ad976ad5d491ad57a5eec0', 'active', 'admin'),
-(4, 'Smarika', 'Rijal', 'Kathmandu', 123456789, 'smarikarijal@gmail.com', '1b0679be72ad976ad5d491ad57a5eec0', 'active', 'admin'),
-(5, 'Mr Admin', 'Lname', 'Kathmandu', 9813651008, 'admin@fb.com', 'password', 'active', 'admin'),
-(6, 'sdsdsd', 'sdsdsd', 'sdsds', 232332, 'admin@fb.com', '1234', 'active', NULL),
-(7, 'ewrewr', 'werwerwer', 'erwerwer', 23423423, 'admin@fb.com', '1234', 'active', NULL),
-(8, 'vbnvbnvbn', 'bvnvbn', 'vbnvbn', 32132, 'admin@fb.com', '12345', 'active', NULL);
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `address`, `contact`, `email`, `password`, `status`, `role`, `img`) VALUES
+(1, 'Susan', 'Koju', 'Bhaktapur', 123456789, 'susankoju@gmail.com', '1b0679be72ad976ad5d491ad57a5eec0', 'active', 'admin', ''),
+(2, 'Roshan', 'Lasiwa', 'Bhaktapur', 123456789, 'roshanlasiwa@gmail.com', '1b0679be72ad976ad5d491ad57a5eec0', 'active', 'admin', ''),
+(3, 'Anisha', 'Rauniyar', 'Kathmandu', 123456789, 'anisharauniyar@yahoo.com', '1b0679be72ad976ad5d491ad57a5eec0', 'active', 'admin', ''),
+(4, 'Smarika', 'Rijal', 'Kathmandu', 123456789, 'smarikarijal@gmail.com', '1b0679be72ad976ad5d491ad57a5eec0', 'active', 'admin', ''),
+(5, 'Mr Admin', 'Lname', 'Kathmandu', 9813651008, 'admin@fb.com', 'password', 'active', 'admin', ''),
+(6, 'cust', 'mer', 'Nepal', 981273213, 'cust@fb.com', 'password', 'active', NULL, '');
 
 --
 -- Indexes for dumped tables
@@ -385,7 +391,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `restaurants`
@@ -397,7 +403,7 @@ ALTER TABLE `restaurants`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

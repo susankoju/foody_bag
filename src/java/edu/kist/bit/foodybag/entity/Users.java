@@ -29,145 +29,160 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "users", catalog = "foody_bag", schema = "")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u")
-    , @NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.id = :id")
-    , @NamedQuery(name = "Users.findByFirstName", query = "SELECT u FROM Users u WHERE u.firstName = :firstName")
-    , @NamedQuery(name = "Users.findByLastName", query = "SELECT u FROM Users u WHERE u.lastName = :lastName")
-    , @NamedQuery(name = "Users.findByAddress", query = "SELECT u FROM Users u WHERE u.address = :address")
-    , @NamedQuery(name = "Users.findByContact", query = "SELECT u FROM Users u WHERE u.contact = :contact")
-    , @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")
-    , @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")
-    , @NamedQuery(name = "Users.findByStatus", query = "SELECT u FROM Users u WHERE u.status = :status")
-    , @NamedQuery(name = "Users.findByRole", query = "SELECT u FROM Users u WHERE u.role = :role")})
+            @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u")
+            , @NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.id = :id")
+            , @NamedQuery(name = "Users.findByFirstName", query = "SELECT u FROM Users u WHERE u.firstName = :firstName")
+            , @NamedQuery(name = "Users.findByLastName", query = "SELECT u FROM Users u WHERE u.lastName = :lastName")
+            , @NamedQuery(name = "Users.findByAddress", query = "SELECT u FROM Users u WHERE u.address = :address")
+            , @NamedQuery(name = "Users.findByContact", query = "SELECT u FROM Users u WHERE u.contact = :contact")
+            , @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")
+            , @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")
+            , @NamedQuery(name = "Users.findByStatus", query = "SELECT u FROM Users u WHERE u.status = :status")
+            , @NamedQuery(name = "Users.findByRole", query = "SELECT u FROM Users u WHERE u.role = :role")
+            , @NamedQuery(name = "Users.findByImg", query = "SELECT u FROM Users u WHERE u.img = :img")})
 public class Users implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
-    @Basic(optional = false)
-    @Column(name = "first_name")
-    private String firstName;
-    @Basic(optional = false)
-    @Column(name = "last_name")
-    private String lastName;
-    @Basic(optional = false)
-    @Column(name = "address")
-    private String address;
-    @Basic(optional = false)
-    @Column(name = "contact")
-    private long contact;
-    @Basic(optional = false)
-    @Column(name = "email")
-    private String email;
-    @Basic(optional = false)
-    @Column(name = "password")
-    private String password;
-    @Basic(optional = false)
-    @Column(name = "status")
-    private String status;
-    @Column(name = "role")
-    private String role;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+            private static final long serialVersionUID = 1L;
+            @Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            @Basic(optional = false)
+            @Column(name = "id")
+            private Integer id;
+            @Basic(optional = false)
+            @Column(name = "first_name")
+            private String firstName;
+            @Basic(optional = false)
+            @Column(name = "last_name")
+            private String lastName;
+            @Basic(optional = false)
+            @Column(name = "address")
+            private String address;
+            @Basic(optional = false)
+            @Column(name = "contact")
+            private long contact;
+            @Basic(optional = false)
+            @Column(name = "email")
+            private String email;
+            @Basic(optional = false)
+            @Column(name = "password")
+            private String password;
+            @Basic(optional = false)
+            @Column(name = "status")
+            private String status;
+            @Column(name = "role")
+            private String role;
+            @Basic(optional = false)
+            @Column(name = "img")
+            private String img;
+            @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private List<CustomerOrder> customerOrderList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private List<Ratings> ratingsList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private List<Bills> billsList;
 
-    public Users() {
-    }
 
-    public Users(Integer id) {
-        this.id = id;
-    }
+            public Users() {
+            }
 
-    public Users(Integer id, String firstName, String lastName, String address, long contact, String email, String password, String status) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.contact = contact;
-        this.email = email;
-        this.password = password;
-        this.status = status;
-    }
+            public Users(Integer id) {
+                        this.id = id;
+            }
 
-    public Integer getId() {
-        return id;
-    }
+            public Users(Integer id, String firstName, String lastName, String address, long contact, String email, String password, String status, String img) {
+                        this.id = id;
+                        this.firstName = firstName;
+                        this.lastName = lastName;
+                        this.address = address;
+                        this.contact = contact;
+                        this.email = email;
+                        this.password = password;
+                        this.status = status;
+                        this.img = img;
+            }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+            public Integer getId() {
+                        return id;
+            }
 
-    public String getFirstName() {
-        return firstName;
-    }
+            public void setId(Integer id) {
+                        this.id = id;
+            }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+            public String getFirstName() {
+                        return firstName;
+            }
 
-    public String getLastName() {
-        return lastName;
-    }
+            public void setFirstName(String firstName) {
+                        this.firstName = firstName;
+            }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+            public String getLastName() {
+                        return lastName;
+            }
 
-    public String getAddress() {
-        return address;
-    }
+            public void setLastName(String lastName) {
+                        this.lastName = lastName;
+            }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+            public String getAddress() {
+                        return address;
+            }
 
-    public long getContact() {
-        return contact;
-    }
+            public void setAddress(String address) {
+                        this.address = address;
+            }
 
-    public void setContact(long contact) {
-        this.contact = contact;
-    }
+            public long getContact() {
+                        return contact;
+            }
 
-    public String getEmail() {
-        return email;
-    }
+            public void setContact(long contact) {
+                        this.contact = contact;
+            }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+            public String getEmail() {
+                        return email;
+            }
 
-    public String getPassword() {
-        return password;
-    }
+            public void setEmail(String email) {
+                        this.email = email;
+            }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+            public String getPassword() {
+                        return password;
+            }
 
-    public String getStatus() {
-        return status;
-    }
+            public void setPassword(String password) {
+                        this.password = password;
+            }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+            public String getStatus() {
+                        return status;
+            }
 
-    public String getRole() {
-        return role;
-    }
+            public void setStatus(String status) {
+                        this.status = status;
+            }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+            public String getRole() {
+                        return role;
+            }
 
-    @XmlTransient
+            public void setRole(String role) {
+                        this.role = role;
+            }
+
+            public String getImg() {
+                        return img;
+            }
+
+            public void setImg(String img) {
+                        this.img = img;
+            }
+
+            
+            @XmlTransient
     public List<CustomerOrder> getCustomerOrderList() {
         return customerOrderList;
     }
@@ -193,30 +208,30 @@ public class Users implements Serializable {
     public void setBillsList(List<Bills> billsList) {
         this.billsList = billsList;
     }
+            
+            @Override
+            public int hashCode() {
+                        int hash = 0;
+                        hash += (id != null ? id.hashCode() : 0);
+                        return hash;
+            }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
+            @Override
+            public boolean equals(Object object) {
+                        // TODO: Warning - this method won't work in the case the id fields are not set
+                        if (!(object instanceof Users)) {
+                                    return false;
+                        }
+                        Users other = (Users) object;
+                        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+                                    return false;
+                        }
+                        return true;
+            }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Users)) {
-            return false;
-        }
-        Users other = (Users) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "edu.kist.bit.foodybag.entity.Users[ id=" + id + " ]";
-    }
-    
+            @Override
+            public String toString() {
+                        return "edu.kist.bit.foodybag.entity.Users[ id=" + id + " ]";
+            }
+            
 }
