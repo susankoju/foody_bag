@@ -35,7 +35,15 @@
                           <span>Add Event</span>
                       </a>
                   </li>
-                  
+                 
+                  <li>
+                      <a class="" href="reservationView">
+                          <i class="icon_genius"></i>
+                          <span>View Reservation</span>
+                      </a>
+                  </li>
+                  <!--
+                   
                   <li>
                       <a class="" href="viewCustomers.html">
                           <i class="icon_genius"></i>
@@ -43,12 +51,6 @@
                       </a>
                   </li>
                   
-                  <li>
-                      <a class="" href="reservationView">
-                          <i class="icon_genius"></i>
-                          <span>View Reservation</span>
-                      </a>
-                  </li>
                   
                  <li>
                       <a class="" href="updateCategories.html">
@@ -56,7 +58,7 @@
                           <span>Update Category</span>
                       </a>
                   </li>
-                 
+                 -->
                   
               </ul>
               <!-- sidebar menu end-->

@@ -34,6 +34,10 @@
    <p><a href="updateFood?id=${food.id}" class="btn btn-primary btn-outline">Edit</a></p>        
    <p><a href="deleteFood?id=${food.id}" class="btn btn-danger btn-outline">Delete</a></p>
 
+</c:if>                   
+<c:if test="${role=='customer'}">              
+   <p><a href="order?id=${food.id}" class="btn btn-primary btn-outline">Order</a></p>      
+
 </c:if>
                                                                         
                                                                         

@@ -25,10 +25,10 @@
            
 		<div class="panel-body">
                     <form class="form-horizontal " method="POST" action="updateFoodPost" enctype='multipart/form-data'>
-                                  <div class="form-group" style="display:hidden">
+                                  <div class="form-group" style="display: hidden;">
                                       <label class="col-sm-2 control-label">Food id</label>
                                       <div class="col-sm-10">
-                                          <input name="name" type="text" value="${food.id}" class="form-control">
+                                          <input name="id" type="number" value="${food.id}" class="form-control">
                                       </div>
                                   </div>
                                   <div class="form-group">
@@ -42,7 +42,7 @@
                                       <div class="col-sm-10">
                                           
                                           <select name="category_id" class="form-control">
-                                              <option value="${food.typeId}" selected>${food.typeId.name}</option>
+                                              <option value="${food.typeId.id}" selected>${food.typeId.name}</option>
                                                              <c:forEach var="type" items="${foodList}">
                                               <option value="${type.id}" >${type.name}</option>
                                                              </c:forEach>

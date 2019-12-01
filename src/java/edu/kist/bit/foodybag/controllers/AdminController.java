@@ -6,17 +6,18 @@
 package edu.kist.bit.foodybag.controllers;
 
 
-import static edu.kist.bit.foodybag.entity.CustomerOrder_.time;
 import edu.kist.bit.foodybag.entity.Events;
 import edu.kist.bit.foodybag.entity.FoodTypes;
 import edu.kist.bit.foodybag.entity.Foods;
+import edu.kist.bit.foodybag.entity.ItemsOrder;
+import edu.kist.bit.foodybag.entity.Ratings;
 import edu.kist.bit.foodybag.entity.Reservation;
 import edu.kist.bit.foodybag.entity.Users;
-import static edu.kist.bit.foodybag.entity.Users_.contact;
-import static edu.kist.bit.foodybag.entity.Users_.email;
 import edu.kist.bit.foodybag.services.EventsJpaController;
 import edu.kist.bit.foodybag.services.FoodTypesJpaController;
 import edu.kist.bit.foodybag.services.FoodsJpaController;
+import edu.kist.bit.foodybag.services.ItemsOrderJpaController;
+import edu.kist.bit.foodybag.services.RatingsJpaController;
 import edu.kist.bit.foodybag.services.ReservationJpaController;
 import edu.kist.bit.foodybag.services.UsersJpaController;
 import edu.kist.bit.foodybag.services.exceptions.IllegalOrphanException;
@@ -140,7 +141,7 @@ public class AdminController extends HttpServlet {
                         //event.setTime(request.getParameter("time"));
                         event.setTime(new Date());
                         eventjpaController.create(event);
-                redirectURL = "/WEB-INF/events.jsp";
+                redirectURL = "events";
                 break;
             case "/categories":
                         
@@ -243,8 +244,43 @@ public class AdminController extends HttpServlet {
                 break;
 
             case "/updateFoodPost":        
-            
-                redirectURL = "menu";
+                                              
+                        
+                                 
+            foodjpaController = new FoodsJpaController(emf);
+            foodTypejpaController = new FoodTypesJpaController(emf);
+            food = new Foods();
+            String id = request.getParameter("id");
+             food.setId(Integer.parseInt(id));
+             food.setName(request.getParameter("name"));
+             food.setPrice(Long.valueOf(request.getParameter("price")));
+             food.setSize(request.getParameter("size"));
+             food.setTypeId(foodTypejpaController.findFoodTypes(Integer.parseInt(request.getParameter("category_id"))));
+                        ItemsOrderJpaController jpc =new ItemsOrderJpaController(emf);
+                        RatingsJpaController rjpc = new RatingsJpaController(emf);
+                        
+             List<ItemsOrder> io = jpc.findItemsOrderEntities();
+             List<Ratings> ra = rjpc.findRatingsEntities();
+             
+             food.setRatingsList(ra);
+             food.setItemsOrderList(io);
+        
+                fileUploadDTO = FileUploadUtil.fileUpload(request, response, "file");
+                photo = fileUploadDTO.getFileName();
+
+                food.setImg(photo);
+        
+                    try {
+                                foodjpaController.edit(food);
+                    } catch (NonexistentEntityException ex) {
+                                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (Exception ex) {
+                                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+        
+                redirectURL = "/menu";
+
+                        
                 break;
 
             default:
