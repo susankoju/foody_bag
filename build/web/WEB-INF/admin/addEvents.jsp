@@ -1,4 +1,3 @@
-
 <c:if test="${role!='admin'}">
     <c:redirect url="index.jsp"/>
 </c:if>
@@ -7,59 +6,42 @@
     <jsp:include page="/WEB-INF/admin/sidebar.jsp"/>
 
 </c:if>
-      
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">            
               <!--overview start-->
 			  <div class="row">
 				<div class="col-lg-12">
-					<h3 class="page-header"><i class="fa fa-laptop"></i> Food</h3>
+					<h3 class="page-header"><i class="fa fa-laptop"></i> Event</h3>
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="dashboard">Home</a></li>
-						<li><i class="fa fa-laptop"></i>Add Food</li>						  	
+						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+						<li><i class="fa fa-laptop"></i>Add Event</li>						  	
 					</ol>
 				</div>
 			</div>
               
            
 		<div class="panel-body">
-                    <form class="form-horizontal " method="POST" action="addFood" enctype='multipart/form-data'>
+                    <form class="form-horizontal " method="post" action="addEvents">
                                   <div class="form-group">
-                                      <label class="col-sm-2 control-label">Food Name</label>
+                                      <label class="col-sm-2 control-label">Event Name</label>
                                       <div class="col-sm-10">
                                           <input name="name" type="text" class="form-control">
                                       </div>
                                   </div>
                                    <div class="form-group">
-                                      <label class="col-sm-2 control-label">Category Name</label>
+                                      <label class="col-sm-2 control-label">Event Date & time</label>
                                       <div class="col-sm-10">
-                                          <input name="category_id" type="number" class="form-control">
+                                          <input type="date" name="time" class="form-control">
                                       </div>
                                   </div>
                          
                           <div class="form-group">
-                                      <label class="col-sm-2 control-label">Size</label>
+                                      <label class="col-sm-2 control-label">Event Description</label>
                                       <div class="col-sm-10">
-                                          <input name="size" type="text" class="form-control">
+                                          <input name="description" type="text" class="form-control">
                                       </div>
                                   </div>
-                                  <div class="form-group">
-                                      <label class="col-sm-2 control-label">Price</label>
-                                      <div class="col-sm-10">
-                                          <input name="price" type="number" class="form-control">
-                                      </div>
-                                  </div>
-                         
-                         <div class="form-group">
-                                      <label class="col-sm-2 control-label">Image</label>
-                                      <div class="col-sm-10">
-                                          <input class="input100" type="file" name="file" >
-						<span class="focus-input100"></span>
-                                      </div>
-						
-                                  </div>
-                         
                          
                          
                          
@@ -73,6 +55,7 @@
                              
                             </div>
                     </form>
+                        
                         
 
 
@@ -100,5 +83,4 @@
             </div>
         </div>
       </section>
-      <!--main content end-->
- 
+      

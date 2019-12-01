@@ -30,7 +30,7 @@
                   
                   
                   <li>
-                      <a class="" href="addEvents.html">
+                      <a class="" href="addEventsForm">
                           <i class="icon_genius"></i>
                           <span>Add Event</span>
                       </a>
@@ -44,7 +44,7 @@
                   </li>
                   
                   <li>
-                      <a class="" href="viewReservations.html">
+                      <a class="" href="reservationView">
                           <i class="icon_genius"></i>
                           <span>View Reservation</span>
                       </a>

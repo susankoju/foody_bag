@@ -16,7 +16,7 @@
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="fa fa-laptop"></i> Food</h3>
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+						<li><i class="fa fa-home"></i><a href="dashboard">Home</a></li>
 						<li><i class="fa fa-laptop"></i>Add Food</li>						  	
 					</ol>
 				</div>

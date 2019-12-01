@@ -93,7 +93,7 @@
 				<div class="container-fluid">
 					<div class="fh5co-menu-1">
                                             <c:if test="${role=='admin'}">
-						<a href="./dashboard" data-nav-section="about">Dashboard</a>                                                
+						<a style="padding:0px 5px" href="./dashboard" data-nav-section="dashboard"><img src="images/dashboard.png" style=" width:50px;height:50px;margin:0px"  alt="Dashboard"/></a>                                                
                                             </c:if>
 						<a href="./index.jsp" data-nav-section="home">Home</a>
 						<a href="./about.jsp" data-nav-section="about">About</a>

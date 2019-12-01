@@ -24,37 +24,43 @@
               
            
 		<div class="panel-body">
-                    <form class="form-horizontal " method="POST" action="addFood" enctype='multipart/form-data'>
+                    <form class="form-horizontal " method="POST" action="updateFood" enctype='multipart/form-data'>
+                                  <div class="form-group" style="display:hidden">
+                                      <label class="col-sm-2 control-label">Food id</label>
+                                      <div class="col-sm-10">
+                                          <input name="name" type="text" value="${food.id}" class="form-control">
+                                      </div>
+                                  </div>
                                   <div class="form-group">
                                       <label class="col-sm-2 control-label">Food Name</label>
                                       <div class="col-sm-10">
-                                          <input name="name" type="text" class="form-control">
+                                          <input name="name" type="text" value="${food.name}" class="form-control">
                                       </div>
                                   </div>
                                    <div class="form-group">
                                       <label class="col-sm-2 control-label">Category Name</label>
                                       <div class="col-sm-10">
-                                          <input name="category_id" type="number" class="form-control">
+                                          <input name="category_id" type="number" value="${food.categoryId}"  class="form-control">
                                       </div>
                                   </div>
                          
                           <div class="form-group">
                                       <label class="col-sm-2 control-label">Size</label>
                                       <div class="col-sm-10">
-                                          <input name="size" type="text" class="form-control">
+                                          <input name="size" type="text" value="${food.size}"  class="form-control">
                                       </div>
                                   </div>
                                   <div class="form-group">
                                       <label class="col-sm-2 control-label">Price</label>
                                       <div class="col-sm-10">
-                                          <input name="price" type="number" class="form-control">
+                                          <input name="price" type="number" value="${food.price}"  class="form-control">
                                       </div>
                                   </div>
                          
                          <div class="form-group">
                                       <label class="col-sm-2 control-label">Image</label>
                                       <div class="col-sm-10">
-                                          <input class="input100" type="file" name="file" >
+                                          <input class="input100" value="${food.img}"  type="file" name="file" >
 						<span class="focus-input100"></span>
                                       </div>
 						

@@ -1,8 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-        <c:forEach var="food" items="${menus}">
-            <h2> Name: ${food.name}</h2>
-            <p> Type: ${food.typeId.name} $ ${food.price} </p>
-        </c:forEach>
+       
 		</div>
 		<div id="fh5co-menus" data-section="menu">
 			<div class="container">
@@ -17,62 +14,31 @@
 						<div class="fh5co-food-menu to-animate-2">
 							<h2 class="fh5co-drinks">Tasty Foods!</h2>
 							<ul>
+                                                             <c:forEach var="food" items="${menus}">
 								<li>
 									<div class="fh5co-food-desc">
 										<figure>
-											<img src="images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+											<img src="./uploads/${food.img}" class="img-responsive" alt="Food Img">
 										</figure>
 										<div>
-											<h3>Pineapple Juice</h3>
-											<p>Far far away, behind the word mountains.</p>
+											<h3>${food.name}</h3>
+											<p>${food.typeId.name}</p>
 										</div>
 									</div>
 									<div class="fh5co-food-pricing">
-										$17.50
+										$ ${food.price}
 									</div>
+                                                                        
+                                                                        
+                                                                        <c:if test="${role=='admin'}">              
+   <p><a href="updateFood?id=${food.id}" class="btn btn-primary btn-outline">Edit</a></p>        
+   <p><a href="deleteFood?id=${food.id}" class="btn btn-danger btn-outline">Delete</a></p>
+
+</c:if>
+                                                                        
+                                                                        
 								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_6.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Green Juice</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$7.99
-									</div>
-								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_7.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Soft Drinks</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$12.99
-									</div>
-								</li>
-								<li>
-									<div class="fh5co-food-desc">
-										<figure>
-											<img src="images/res_img_5.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-										</figure>
-										<div>
-											<h3>Carlo Rosee Drinks</h3>
-											<p>Far far away, behind the word mountains.</p>
-										</div>
-									</div>
-									<div class="fh5co-food-pricing">
-										$12.99
-									</div>
-								</li>
+                                                              </c:forEach>
 							</ul>
 						</div>
 					</div>

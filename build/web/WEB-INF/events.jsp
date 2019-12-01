@@ -19,7 +19,15 @@
                                                             <h3>${event.title}</h3>
                                                             <span class="fh5co-event-meta">${event.time}</span>
                                                             <p>${event.description}</p>
-                                                            <p><a href="#" class="btn btn-primary btn-outline">Read More</a></p>
+                                                            
+<c:if test="${role=='admin'}">              
+   <p><a href="deleteEvent?id=${event.id}" class="btn btn-primary btn-outline">Delete</a></p>
+
+</c:if>
+   <c:if test="${role!='admin'}">              
+  <p><a href="#" class="btn btn-primary btn-outline">Read More</a></p>
+
+</c:if>
                                                     </div>
                                             </div>
                                         </c:forEach>>

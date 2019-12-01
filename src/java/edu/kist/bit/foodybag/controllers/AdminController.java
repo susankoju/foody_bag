@@ -6,18 +6,25 @@
 package edu.kist.bit.foodybag.controllers;
 
 
+import static edu.kist.bit.foodybag.entity.CustomerOrder_.time;
+import edu.kist.bit.foodybag.entity.Events;
 import edu.kist.bit.foodybag.entity.FoodTypes;
 import edu.kist.bit.foodybag.entity.Foods;
+import edu.kist.bit.foodybag.entity.Reservation;
 import edu.kist.bit.foodybag.entity.Users;
 import static edu.kist.bit.foodybag.entity.Users_.contact;
 import static edu.kist.bit.foodybag.entity.Users_.email;
+import edu.kist.bit.foodybag.services.EventsJpaController;
 import edu.kist.bit.foodybag.services.FoodTypesJpaController;
 import edu.kist.bit.foodybag.services.FoodsJpaController;
+import edu.kist.bit.foodybag.services.ReservationJpaController;
 import edu.kist.bit.foodybag.services.UsersJpaController;
+import edu.kist.bit.foodybag.services.exceptions.IllegalOrphanException;
 import edu.kist.bit.foodybag.services.exceptions.NonexistentEntityException;
 import edu.kist.bit.foodybag.utils.FileUploadDTO;
 import edu.kist.bit.foodybag.utils.FileUploadUtil;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,8 +38,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet(name = "AdminController", urlPatterns = {"/addUser", "/addFood", "/addCategories", "/categories",
-    "/adminDashboard", "/updateUser", "/manageUsers", "/deleteUsers", "/addFoodForm",
+@WebServlet(name = "AdminController", urlPatterns = {"/addUser", "/addFood", "/addCategories", "/categories","/addEventsForm","/addEvents",
+    "/adminDashboard", "/updateUser", "/manageUsers", "/deleteUsers","/deleteEvent","/deleteFood", "/addFoodForm","/reservationView", "/updateFood",
     "/updateFoood"})
 @MultipartConfig
 public class AdminController extends HttpServlet {
@@ -55,7 +62,7 @@ public class AdminController extends HttpServlet {
         List<Users> userList = usersjpaController.findUsersEntities();
         Users user = new Users();
 
-        String redirectURL, ref;
+        String redirectURL="login.jsp", ref;
         String servletPath = request.getServletPath();
 
         switch (servletPath) {
@@ -112,8 +119,24 @@ public class AdminController extends HttpServlet {
                         categoriesjpaController.create(categories);
                 redirectURL = "/WEB-INF/admin/addCategories.jsp";
                 break;
+            case "/addEvents":
+                          
+                        EventsJpaController eventjpaController = new EventsJpaController(emf);
+                        Events event = new Events();
+                        
+                        event.setTitle(request.getParameter("name"));
+                        event.setDescription(request.getParameter("description"));
+                        //event.setTime(request.getParameter("time"));
+                        event.setTime(new Date());
+                        eventjpaController.create(event);
+                redirectURL = "/WEB-INF/events.jsp";
+                break;
             case "/categories":
-                        redirectURL = "/WEB-INF/admin/addCategories.jsp";
+                        
+                redirectURL = "/WEB-INF/admin/addCategories.jsp";
+                break;
+            case "/addEventsForm":
+                        redirectURL = "/WEB-INF/admin/addEvents.jsp";
                 break;
 
             case "/manageuser":
@@ -126,6 +149,15 @@ public class AdminController extends HttpServlet {
                 user = usersjpaController.findUsers(Integer.parseInt(ref));
                 request.setAttribute("users", user);
                 redirectURL = "/WEB-INF/admin/updateuser.jsp";
+                break;
+
+            case "/reservationView":
+                        ReservationJpaController reserveJpa = new ReservationJpaController(emf);
+                        List<Reservation> reserves = reserveJpa.findReservationEntities();
+
+                        request.setAttribute("reserves", reserves);
+                        String URL = "/WEB-INF/admin/reservationView.jsp";
+                        dispatchRequest(request, response, URL);
                 break;
 
             case "/updateuser":
@@ -154,6 +186,43 @@ public class AdminController extends HttpServlet {
                     Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 redirectURL = "/WEB-INF/admin/manageuser.jsp";
+                break;
+
+            case "/deleteEvent":
+                ref = request.getParameter("id");
+                try {
+                    eventjpaController = new EventsJpaController(emf);
+                    eventjpaController.destroy(Integer.parseInt(ref));
+                } catch (NonexistentEntityException ex) {
+                    Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                redirectURL = "/WEB-INF/events.jsp";
+                break;
+
+            case "/deleteFood":
+                ref = request.getParameter("id");
+                
+                try {                            
+                    FoodsJpaController foodJpaController = new FoodsJpaController(emf);
+                    try {
+                                foodJpaController.destroy(Integer.parseInt(ref));
+                    } catch (IllegalOrphanException ex) {
+                                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } catch (NonexistentEntityException ex) {
+                    Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                redirectURL = "/WEB-INF/menu.jsp";
+                break;
+                
+            case "/updateFood":
+                ref = request.getParameter("id");
+                 FoodsJpaController foodJpaController = new FoodsJpaController(emf);
+                Foods fd =foodJpaController.findFoods(Integer.parseInt(ref));
+               
+                request.setAttribute("food", fd);
+                
+                redirectURL = "/WEB-INF/admin/updateFood.jsp";
                 break;
 
             default:
