@@ -33,9 +33,19 @@
                                   </div>
                                    <div class="form-group">
                                       <label class="col-sm-2 control-label">Category Name</label>
-                                      <div class="col-sm-10">
+                                      
+                                      <!--
                                           <input name="category_id" type="number" class="form-control">
+                                      -->
+                                      
+                                      <div class="col-sm-10">
+                                      <select name="category_id" class="form-control">
+                                                             <c:forEach var="type" items="${foodList}">
+                                              <option value="${type.id}" >${type.name}</option>
+                                                             </c:forEach>
+                                          </select>
                                       </div>
+                                                             
                                   </div>
                          
                           <div class="form-group">

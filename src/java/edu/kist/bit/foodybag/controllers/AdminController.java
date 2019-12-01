@@ -39,7 +39,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet(name = "AdminController", urlPatterns = {"/addUser", "/addFood", "/addCategories", "/categories","/addEventsForm","/addEvents",
-    "/adminDashboard", "/updateUser", "/manageUsers", "/deleteUsers","/deleteEvent","/deleteFood", "/addFoodForm","/reservationView", "/updateFood",
+    "/adminDashboard", "/updateUser", "/manageUsers", "/deleteUsers","/deleteEvent","/deleteFood", "/addFoodForm","/reservationView", "/updateFood","/updateFoodPost",
     "/updateFoood"})
 @MultipartConfig
 public class AdminController extends HttpServlet {
@@ -103,7 +103,18 @@ public class AdminController extends HttpServlet {
                 break;
 
             case "/addFoodForm":
+                        
+                        
+                 FoodTypesJpaController foodType = new FoodTypesJpaController(emf);
+                        List<FoodTypes> foods = foodType.findFoodTypesEntities();
+                        
+                        request.setAttribute("foodList", foods);
+                
+                        
                 redirectURL = "/WEB-INF/admin/addFoods.jsp";
+                
+                
+                        dispatchRequest(request, response, redirectURL);
                 break;
                 
             case "/adminsignup":
@@ -196,7 +207,7 @@ public class AdminController extends HttpServlet {
                 } catch (NonexistentEntityException ex) {
                     Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                redirectURL = "/WEB-INF/events.jsp";
+                redirectURL = "events";
                 break;
 
             case "/deleteFood":
@@ -212,7 +223,7 @@ public class AdminController extends HttpServlet {
                 } catch (NonexistentEntityException ex) {
                     Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                redirectURL = "/WEB-INF/menu.jsp";
+                redirectURL = "menu";
                 break;
                 
             case "/updateFood":
@@ -222,7 +233,18 @@ public class AdminController extends HttpServlet {
                
                 request.setAttribute("food", fd);
                 
+                
+                  foodType = new FoodTypesJpaController(emf);
+                     foods = foodType.findFoodTypesEntities();
+                        
+                        request.setAttribute("foodList", foods);             
+            
                 redirectURL = "/WEB-INF/admin/updateFood.jsp";
+                break;
+
+            case "/updateFoodPost":        
+            
+                redirectURL = "menu";
                 break;
 
             default:

@@ -17,14 +17,14 @@
 					<h3 class="page-header"><i class="fa fa-laptop"></i> Food</h3>
 					<ol class="breadcrumb">
 						<li><i class="fa fa-home"></i><a href="dashboard">Home</a></li>
-						<li><i class="fa fa-laptop"></i>Add Food</li>						  	
+						<li><i class="fa fa-laptop"></i>Edit Food</li>						  	
 					</ol>
 				</div>
 			</div>
               
            
 		<div class="panel-body">
-                    <form class="form-horizontal " method="POST" action="updateFood" enctype='multipart/form-data'>
+                    <form class="form-horizontal " method="POST" action="updateFoodPost" enctype='multipart/form-data'>
                                   <div class="form-group" style="display:hidden">
                                       <label class="col-sm-2 control-label">Food id</label>
                                       <div class="col-sm-10">
@@ -40,7 +40,13 @@
                                    <div class="form-group">
                                       <label class="col-sm-2 control-label">Category Name</label>
                                       <div class="col-sm-10">
-                                          <input name="category_id" type="number" value="${food.categoryId}"  class="form-control">
+                                          
+                                          <select name="category_id" class="form-control">
+                                              <option value="${food.typeId}" selected>${food.typeId.name}</option>
+                                                             <c:forEach var="type" items="${foodList}">
+                                              <option value="${type.id}" >${type.name}</option>
+                                                             </c:forEach>
+                                          </select>
                                       </div>
                                   </div>
                          
@@ -74,7 +80,7 @@
           
 
                <div class="panel-body">
-                   <input type="submit" value="Add" class="btn btn-primary" >
+                   <input type="submit" value="Update" class="btn btn-primary" >
                    <input type="cancel" value="Cancel" class="btn btn-danger" >
                              
                             </div>
